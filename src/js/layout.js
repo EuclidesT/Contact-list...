@@ -1,12 +1,16 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
+import toast, {Toaster} from "react-hot-toast";
+import ContactCard from "./component/contactCard";
+import EditContact from "./views/editContact";
 
 import { Home } from "./views/home";
 import { Demo } from "./views/demo";
 import { Single } from "./views/single";
 import injectContext from "./store/appContext";
 
+import NewContact from "./views/newContact";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 
@@ -26,7 +30,11 @@ const Layout = () => {
 						<Route path="/demo" element={<Demo />} />
 						<Route path="/single/:theid" element={<Single />} />
 						<Route path="*" element={<h1>Not found!</h1>} />
+						<Route path="/new-contact" element={<NewContact />} />
+						<Route path="/contact" element={<ContactCard />} />
+						<Route path="/edit-contact/:id" element={<EditContact />} />
 					</Routes>
+					<Toaster />
 					<Footer />
 				</ScrollToTop>
 			</BrowserRouter>
